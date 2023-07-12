@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션관련스타일</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: darkolivegreen;
+            margin-bottom: 10px;
+        }
+        .aniTest1:hover{
+            width: 200px;
+            height: 200px;
+            animation-name: ani1;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        .aniTest2:hover{
+            width: 200px;
+            height: 200px;
+            animation: ani2 5s infinite;
+        }
+        @keyframes ani1{
+            from{
+                background-color: cadetblue;
+                border: 1px solid salmon;
+            }
+            to{
+                background-color: crimson;
+                border-radius: 50%;
+                transform: rotate(720deg);
+                border: 3px dashed red;
+            }
+        }
+        @keyframes ani2{
+            0%{
+                background-color: darkorchid;
+            }
+            30%{
+                background-color: lightblue;
+                transform: translate(50px, 50px);
+            }
+            50%{
+                background-color: lightgrey;
+                transform: translate(50px, -50px);
+            }
+            100%{
+                background-color: wheat;
+                transform: translate(-50px,50px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>애니메이션 관련 스타일</h1>
+    <p>
+        속성을 점차적으로 변화시켜 움직이는 효과를 내는 기법 <br>
+        트랜지션과 비교했을때 시작 스타일과 끝 스타일을 부드럽게 이어주는 기능을 한다는 것을 <br>
+        같지만 애니메이션은 중간에 원하는 위치에서 @keyframe을 이용하여 스타일 지정이 가능하다.
+    </p>
+
+    <br><br>
+    <h3>keyframes</h3>
+    <p>
+        애니메이션 시작지점과 끝지점의 스타일을 정하고 keyframes의 이름을 지정<br>
+        시작 지점과 끝지점 두개만 설정할 경우 from to로 설정한다<br>
+        중간에 작업이 있으면 %로 구분하여 설정한다. 
+    </p>
+
+    <pre>
+        @keyframes 키프레임명{
+            선택자{
+                스타일;
+            }
+        }
+    </pre>
+
+    <div class="aniTest1">기본 적용</div>
+    <div class="aniTest2">애니 적용</div>
+</body>
+</html>

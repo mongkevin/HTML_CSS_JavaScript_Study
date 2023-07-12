@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>4.이미지 멀티 미디어 관련 태그</title>
+    </head>
+
+    <body>
+        <h1>이미지 멀티 미디어 관련 태그</h1>
+        <!--img src="사입하고자 하는 이미지의 경로" alt="설명 문구"
+                width="가로크기(px)" height="세로크기(px)"
+        -->
+        <h3>이미지 src속성 alt속성</h3>
+        <img src="resources/szhx3ytpgfnhpbmsngk0.jpg" alt="뉴욕라이프"><br>
+        <!--
+            alt
+            -사진의 경로가 잘못되었거나 이미지파일이 손상되었을 경우 대체하는 텍스트
+            -스크린 리더가 읽어주는 메세지
+        -->
+
+        <h3>width/height 속성</h3>
+        <p>
+            이미지의 가로길이와 세로 길이를 조정할 수 있는 속성<br>
+            고정길이 px 가변길이 %로 조정 가능하다.
+        </p>
+
+        <h4>고정길이(px):기본값 화면 사이즈가 변동되어도 사진 크기는 고정</h4>
+        <img src="resources/다운로드.jpeg" alt="감성" width="150px" height="200px"><br>
+
+        <h4>가변길이(%): 화면 사이즈에 따라서 사진 크기가 변동된다.</h4>
+        <img src="resources/13.jpg" alt="놀러가고 싶다" width="50%" height="80"><br>
+
+        <h2>미디어 관련 태그</h2>
+
+        <h3>오디오 관련 태그</h3>
+        <!--
+
+            <audio src="" controls autoplay loop></audio>
+
+            src = 경로
+            controls = 조작
+            loop = 반복
+        -->
+
+        <audio src="resources/sample.MP3" controls></audio>
+
+        <h3>비디오 관련 태그</h3>
+
+        <!--
+            <video src="" control autoplay loop width="" height=""></video>
+            poster = 썸네일
+        -->
+
+        <video src="resources/video1.mp4" controls poster="resources/ceqfnmsw8aemk7w-tile-1024x725.jpg" width="500px" height="500px"></video>
+
+        <a href="0_index.html">인덱스로 돌아가자</a>
+        <br><br><br><br><br><br><br><br><br>
+    </body>
+</html>

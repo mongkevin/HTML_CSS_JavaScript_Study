@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜지션 관련 스타일</title>
+    <style>
+        img{
+            width: 150px;
+            height: 150px;
+            margin: 30px;
+        }
+
+        .translate:hover{
+            transform: translate(200px,200px);
+        }
+        .transX:active{
+            transform: translateX(100px);
+        }
+        .transY:active{
+            transform: translateY(100px);
+        }
+        .transZ:active{ /*perspective: 원근감*/
+            transform: perspective(200px) translateZ(-100px);
+        }
+
+
+        h3~p{
+            margin-left: 100px;
+        }
+        .scale:hover{
+            transform: scale(1.5);
+        }
+        .scaleX:hover{
+            transform: scaleX(2);
+        }
+        .simg:hover{
+            transform: scale(2);
+        }
+
+        .skew:hover{
+            transform: skew(50deg);
+            transform: skewX(50deg);
+            transform: skew(50deg,50deg);
+        }
+
+
+        /*transitionDiv transition transi*/
+        .transitionDiv{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            transition-property: all;
+            transition-duration: 1.5s;
+        }
+        .transition:active{
+            background-color: darkolivegreen;
+            transform: translateX(100px);
+        }
+        .transi:hover{
+            background-color: blanchedalmond;
+        }
+        
+        
+        .wrap{
+            width: 70px;
+            height: 70px;
+            background-color: darkkhaki;
+        }
+        #track:hover div{
+            transform: translate(400px);
+            
+        }
+
+        #key1{
+            transition: all 5s linear;
+        }
+        #key2{
+            transition: all 5s ease;
+        }
+        #key3{
+            transition: all 5s ease-in;
+        }
+        #key4{
+            transition: all 5s ease-out;
+        }
+        #key5{
+            transition: all 5s ease-in-out;
+        }
+
+
+        .wrap2{
+            width: 100px;
+            height: 100px;
+            background-color: darkolivegreen;
+            border: 1px solid black;
+        }
+        #delay{
+            transition: all 3s;
+            transition-delay: 0.5s;
+        }
+        #delay:active{
+            width: 400px;
+            height: 100px;
+            background-color: darkseagreen;
+            transform: rotateX(360deg);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>트랜지션 관련 스타일</h1>
+    <h2>변형</h2>
+    <p>
+        마우스 클릭, 마우스 올림등으로 인한 태그의 변형
+    </p>
+
+    <h3>태그 이동시키기</h3>
+    <p>
+        translate함수를 이용하여 특정 위치로 이동시키기
+    </p>
+
+    <img class="translate" src="resources/img/insta.png" alt=""><br>
+    <img class="transX" src="resources/img/insta.png" alt=""><br>
+    <img class="transY" src="resources/img/insta.png" alt=""><br>
+    <img class="transZ" src="resources/img/insta.png" alt=""><br>
+
+    <br><br>
+    <h3>태그 확대하기</h3>
+    <p class="scale">
+        반갑습니다.
+    </p>
+    <p class="scaleX">
+        안녕하십니까.
+    </p>
+
+    <img class="simg" src="../HTML/resources/다운로드.jpeg" alt="">
+
+    <h3>skew 적용하기</h3>
+    <img src="../HTML/resources/szhx3ytpgfnhpbmsngk0.jpg" alt="" class="skew">
+
+    <hr>
+
+    <h3>트랜지션 적용하기</h3>
+
+    <p>
+        태그가 변형 속성에 의해 변형될때 부드럽게 변형되게 적용해주는 속성
+        transition-property: 적용할 속성;
+        transition-duration: 지속시간;
+        transition-timing-function: linear, ease, ease-in, ease-out;
+        transion: 한번에 모든 속성 지정
+    </p>
+
+    <!-- div.transitionDiv.transition.transi -->
+    <div class="transitionDiv transition transi"></div>
+
+    <!--div#track>(h4+div.wrap#key$)*5-->
+    <div id="track">
+        <h4>linear : 균일</h4>
+        <div class="wrap" id="key1"></div>
+        <h4>ease : 극초반 느리게 초반 빠르게 끝 느리게</h4>
+        <div class="wrap" id="key2"></div>
+        <h4>ease-in : 점점 빠르게</h4>
+        <div class="wrap" id="key3"></div>
+        <h4>ease-out : 점점 느리게</h4>
+        <div class="wrap" id="key4"></div>
+        <h4>ease-in-out : 시작지점 종료지점 천천히</h4>
+        <div class="wrap" id="key5"></div>
+    </div>
+
+    <h3>트랜지션 지연시키기</h3>
+    <div class="wrap2" id="delay"></div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탐색(순회)메소드 자손</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .wrap,.wrap *{
+            border: 1px solid black;
+            display: block;
+            margin: 15px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>탐색 순회 메소드 자손</h1>
+
+    <h3>
+        자손 메소드 : 기준이 되는 요소의 하위 요소들을 선택할 수 있는 메소드 
+    </h3>
+
+    <div class="wrap">조상
+        <div> div (증조부모)
+            <ul> ul (조부모)
+                <li> li (부모)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+
+        <div> ul (조부모)
+            <p> li (부모)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+    <p>
+        <h4> --$("선택자").children()</h4>
+        선택된 요소의 모든 자손(바로 하위) 요소들을 선택
+
+        <h4> --$("선택자").children("선택자")</h4>
+        선택된 요소의 모든 자손 요소들 중에서 제시한 값과 일치하는 요소들만 선택
+
+        <h4> --$("선택자").find("선택자")</h4>
+        선택된 요소의 모든 후손 요소들 중에서 제시한 값과 일치하는 요소들만 선택
+    </p>
+
+    <script>
+        $(function(){
+            //앞으로 스타일 부여할 객체
+            var style1 = {color:"red",border:"2px solid red"};
+            var style2 = {color:"orange",border:"2px solid orange"};
+            var style3 = {color:"yellow",border:"2px solid yellow"};
+            var style4 = {color:"green",border:"2px solid green"};
+            var style5 = {color:"blue",border:"2px solid blue"};
+
+            //$("선택자").children()
+            $(".wrap").children().css(style1);
+            $(".wrap").children().children().css(style2); // \n으로 안으로 다 포함되어 있다
+
+            //$("선택자").children("선택자")
+            $(".wrap").children().children("ul").css(style3);
+
+            //$("선택자").find("선택자")
+            $(".wrap").find("li").css(style4);
+            $(".wrap").find("span").css(style5);
+
+        })
+    </script>
+</body>
+</html>

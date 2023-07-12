@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_선택자우선순위</title>
+    <style>
+        *{
+            background-color: aqua;
+        }
+
+        div{
+            background-color: bisque;
+        }
+
+        .test1{
+            background-color: rgb(91, 66, 30) !important;
+        }
+
+        .test2{
+            background-color: blueviolet;
+        }
+
+        #test1{
+            background-color: brown;
+        }
+
+        #test2{
+            background-color: rgb(17, 255, 0);
+        }
+
+        #test1{ /*같은 대상이면 나중에 작성된게 적용*/
+            background-color: cornsilk;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>선택자 우선순위</h1>
+    <p>
+        css는 기본적으로 선택자가 동일한 경우 <br>
+        위에서 아래로 스타일을 적용한다.
+        이때 만약 같은 태그 속성의 스타일로 재선언 할 경우 <br>
+        나중에 선언된 스타일로 적용된다 <br>
+        <br>
+        단, css의 선언 종류가 다를경우 아래의 기준으로<br>
+        순위를 적용하게 되며 오른쪽으로 갈수록 우선순위가 높음 (전체->태그->클래스->아이디->인라인->!important)
+        
+    </p>
+
+    <div id="test1" class="test1">우선순위 테스트1</div>
+    <div id="test2" class="test2" style="background-color: brown;">우선순위 테스트2</div>
+
+
+</body>
+</html>

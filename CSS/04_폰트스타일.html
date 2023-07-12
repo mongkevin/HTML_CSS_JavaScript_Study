@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&family=Righteous&display=swap" rel="stylesheet">    
+    <title>04_폰트스타일</title>
+    <style>
+        #fs-1{
+            font-family: '궁서체';
+        }
+
+        #fs-2{
+            font-family: '돋움체';
+        }
+
+        #fs-3{
+            /*존재하지 않는 폰트를 지정하면 기본 폰트로 적용된다.
+              후보폰트가 있다면 후보폰트가 적용됨*/
+            font-family: '짱좋은체','궁서체'; 
+        }
+
+        #wf-1{
+            font-family: 'Arvo', serif;
+        }
+
+        #wf-2{
+            font-family: 'Arvo', serif;
+            font-family: 'Righteous', cursive;  
+        }
+        
+        #wf-3{
+            font-family: 'Arvo', serif;
+            font-family: 'Righteous', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>폰트 스타일</h1>
+    <!--p#fs-$*3-->
+    <p id="fs-1">
+        오늘은 금요일
+    </p>
+    <p id="fs-2">
+        오늘 저녁메뉴는?
+    </p>
+    <p id="fs-3">
+        주말 일정
+    </p>
+
+    <h3>웹폰트 사용하기</h3>
+
+    <a href="https://fonts.google.com">구글웹폰트</a>
+
+    <p id="wf-1">hello</p>
+    <p id="wf-2">today is friday</p>
+    <p id="wf-3">i wanna go home</p>
+
+</body>
+</html>

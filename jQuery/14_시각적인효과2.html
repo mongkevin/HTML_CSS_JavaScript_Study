@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시각적인 효과 메소드2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>시각적인 효과 메소드 2</h1>
+
+    <div style="width: 100px; height:100px; background-color: beige; opacity: 0.5;"></div>
+
+    <h3>fadeIn()과 fadeOut(), fadeToggle()</h3>
+
+    <p>
+        선택된 요소가 점점 투명해지며 사라지고 점점 선명해지며 보여지게 하는 메소드
+    </p>
+
+    <button id="fadeOut">숨기기</button>
+    <button id="fadeIn">보여주기</button>
+    <button id="fadeToggle">토글</button>
+
+    <img src="https://img.khan.co.kr/news/2019/11/29/l_2019112901003607500286631.jpg" id="img">
+
+    <script>
+        $(function(){
+            $("#fadeOut").click(function(){
+                $("#img").fadeOut(1000);
+            });
+
+            $("#fadeIn").click(function(){
+                $("#img").fadeIn(1000);
+            });
+
+            $("#fadeToggle").click(function(){
+                $("#img").fadeToggle(1500);
+            });
+        })
+    </script>
+</body>
+</html>

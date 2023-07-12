@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탐색(순회)메소드</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .wrap,.wrap *{
+            border: 1px solid black;
+            display: block;
+            margin: 15px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>탐색 순회 메소드</h1>
+
+    <h3>조상 메소드: 기준이 되는 요소의 상위요소들을 선택할 수 있는 메소드</h3>
+
+    <div class="wrap">조상
+        <div> div (증조부모)
+            <ul> ul (조부모)
+                <li> li (부모)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+
+        <div> ul (조부모)
+            <p> li (부모)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+    <p>
+        <h4> --$("선택자").parent()</h4>
+        선택된 요소의 바로 위 상위(부모)요소 하나만 선택
+
+        <h4> --$("선택자").parents()</h4>
+        선택된 요소의 모든 상위요소들을 다 선택
+
+        <h4> --$("선택자").parents("선택자")</h4>
+        선택된 요소의 모든 상위요소들 중에서 제시한 값가 일치하는 상위요소들만 선택
+
+        <h4> --$("선택자").parentsUntill("선택자")</h4>
+        선택된 요소부터 제시한 값까지의 모든 상위요소를 선택
+    </p>
+
+    <script>
+        $(function(){
+            //parent()
+            $("span").parent().css({color:"pink",border:"2px solid pink"}); 
+            //p테그에 \nspan으로 잡혀있기때문에 다 같이 잡힌다
+            console.log($("span").parent());
+
+            //parents()
+            $("li").parents().css("color","lightblue");
+            console.log($("li").parents());
+
+            //$("선택자").parents("선택자")
+            $("li").parents("div").css("border","2px dotted green");
+            console.log($("li").parents("div"));
+
+            //$("선택자").parentsUntill("선택자")
+            $("span").parentsUntil("div").css("color","blue");
+            console.log($("span").parentsUntil("div"));
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 양식</title>
+</head>
+<body>
+    <form action="test.do">
+        <fieldset>
+            <legend>회원가입 동의서</legend>
+            <label for="">이용약관 동의서(필수)</label>
+            <textarea id="" cols="30" rows="10" style="resize:none" disabled><!--readonly-->
+                네이버 서비스 미치 제품(이하 '서비스')을 이용해 주셔서 감사합니다.
+            </textarea><br>
+            <input type="radio" name="agg" id="yes"><label for="yes">동의합니다.</label>
+            <input type="radio" name="agg" id="no"checked><label for="no" >동의하지 않습니다.</label>
+            <br><br>
+
+            <legend>개인정보 수집 및 이용 동의(필수)</legend>
+            <label for="">이용약관 동의서(필수)</label>
+            <textarea id="" cols="30" rows="10" style="resize:none" disabled><!--readonly-->
+                네이버 서비스 미치 제품(이하 '서비스')을 이용해 주셔서 감사합니다.
+            </textarea><br>
+            <input type="radio" name="agg2" id="yes2"><label for="yes2">동의합니다.</label>
+            <input type="radio" name="agg2" id="no2" checked><label for="no2">동의하지 않습니다.</label>
+            <br><br>
+
+            <input type="checkbox" name="agg" id="all"><label for="all" >모두 동의합니다.</label>
+        
+            <button type="reset">취소</button>
+            <button type="button">확인</button>
+        </fieldset>
+        <fieldset>
+            <legend>*회원가입 양식</legend>
+            <label for="userId">아이디</label>
+            <input type="text" name="userId" id="userId" placeholder="영문.." required>
+            <button type="button">아이디 중복 확인</button>
+            <br><br>
+           
+            <label for="userPwd">*비밀번호</label>
+            <input type="password" name="userPwd" id="userPwd" placeholder="영문.." required>
+            <br><br>
+
+            <label for="chkId">*비밀번호 재확인</label>
+            <input type="password" id="chkId" placeholder="영문.." required>
+            <br><br>
+
+            <label for="userName">*이름</label>
+            <input type="text" name="suerName" id="userName" required>
+            <br><br>
+
+            <label for="userNo">*주민등록번호</label>
+            <input type="text" name="suerNo" id="userNo" required> - <input type="password" name="suerNo2" required>
+            <br><br>
+
+            <label for="gender">*성별</label>
+            <!--(input:radio+label)-->
+            <input type="radio" name="gender" id="x" checked><label for="x" >선택안함</label>
+            <input type="radio" name="gender" id="m"><label for="m">남자</label>
+            <input type="radio" name="gender" id="f"><label for="f">여자</label>
+            <br><br>
+
+            <label for="bir">*생년월일</label><br>
+            <input type="date" name="bir" id="bir">
+            <br><br>
+
+            <label for="add">주소</label><br>
+            <input type="text" name="add" id="add">
+            <br><br>
+
+            <label for="">우편번호</label>
+            <input type="text" name="addNo" id="addNo">
+            <button type="botton">우편번호찾기</button>
+            <input type="checkbox" name="" id="agree">
+            <label for="find">우편 수신 동의</label>
+            <br><br>
+
+            <label for="email">이메일</label><br>
+            <input type="text" name="email" id="emali"><input type="checkbox" id="echk">
+            <label for="echk">이메일 수신 동의</label>
+            <br><br>
+
+            <label for="">휴대폰 번호</label><br>
+            <select name="firstNo" id="phone">
+                <optoin>010</optoin>
+                <optoin>011</optoin>
+                <optoin>016</optoin>
+            </select>
+            - <input type="text" size="4"> - <input type="text" size="4">
+            <input type="checkbox" name="" id="smsChk">
+            <label for="smsChk">문자 수진 동의</label>
+
+            <br><br>
+            <input type="reset" value="초기화">
+            <input type="submit" value="가입하기">
+        </fieldset>
+        
+
+    </form>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>제목입니다</title>
+    </head>
+
+    <body>
+        <h1>안녕하세요</h1>
+        <hr>
+        <button>로그인</button>
+        
+        <form action="test.do">
+            <fieldset>
+                <legend>납품자 정보</legend>
+                <ol><!--label{상품명:}-->
+                    <li>납품자 명:<input type="text" placeholder="이름"></li>
+                    <li>email: <input type="email" placeholder="ex@naver.com"></li>
+                    <li>홈페이지: <input type="url" placeholder="http://"></li>
+                </ol>
+            </fieldset>
+            <fieldset>
+                <legend>납품 정보</legend>
+                <ul><!--label{기타 사항:} + textarea-->
+                    <li>상품명: <input type="text"></li>
+                    <li>납품 수량: <input type="number" placeholder="최소수량 100"></li>
+                    <li>납품 등급: <input type="range" min="100" max="500" step="50"></li>
+                    <li>기타 사항: <textarea name="etc" id="" cols="15" rows="2"></textarea></li>
+                </ul>
+            </fieldset>
+        </form>
+        
+        <form action="test.do">
+            <h4>피자 주문</h4>
+                <label for="userName">고객명: </label>
+                <input type="text" name="userName" id="userName"><br>
+                <label for="phone">전화번호: </label>
+                <input type="text" name="phone" id="phone"><br>
+                <label for="email">E-mail: </label>
+                <input type="text" name="email" id="email"><br>
+            <fieldset>
+                <legend>피자 사이즈</legend>
+                <input type="radio" name="size" id="s" value="small"><label for="s" >small</label>
+                <input type="radio" name="size" id="m" value="medium"><label for="m">medium</label>
+                <input type="radio" name="size" id="l" vallue="large"><label for="l">large</label>
+            </fieldset>
+            <fieldset>
+                <legend>토핑 사이즈</legend>
+                <input type="checkbox" name="topping" id="bacon" value="bacon"><label for="bacon">bacon</label>
+                <input type="checkbox" name="topping" id="cheese" value="cheese"><label for="cheese">cheese</label>
+                <input type="checkbox" name="topping" id="onion" value="onion"><label for="onion">onion</label>
+                <input type="checkbox" name="topping" id="mushroom" value="mushroom"><label for="mushroom">mushroom</label>
+            </fieldset>
+            희망 배송 시간: <input type="time"><br>
+            배송시 요청사항 <textarea cols="15" rows="2"></textarea>
+            <input type="submit" value="주문하기">
+        </form>
+        
+        <form action="test.do">
+            <fieldset>
+                <legend>회원가입 동의서</legend>
+                이용약관 동의(필수) <br><textarea name="agree" id="ok" cols="30" rows="10" style="resize:none">네이버 서비스 및 제품</textarea><br>
+                <input type="radio" name="agreement" id="yes" value="yes" required><label for="yes">동의합니다.</label>
+                <input type="radio" name="agreement" id="no" value="no" required><label for="no">동의하지 않습니다.</label>
+                개인정보 수집 및 이용 동의(필수)<br><textarea name="usage" id="ok" cols="30" rows="10" style="resize:none">자세히 읽은 후 동의하여 주시기 바랍니다.</textarea><br>
+                <input type="radio" name="agreements" id="yess" value="yess" required><label for="yess">동의합니다.</label>
+                <input type="radio" name="agreements" id="nos" value="nos" required><label for="nos">동의하지 않습니다.</label><br>
+                <input type="radio" name="all" id="all" value="yes,yess"><label for="all">모두 동의합니다.</label>
+            </fieldset>
+            
+            <fieldset>
+                <legend>회원가입 양식</legend>
+                <ul>
+                    <li>아이디<br><input type="text" placeholder="영문,소문자,숫자,특수기호 5~20">
+                    <button>아이디 중복확인</button></li>
+                    <li>비밀번호<br><input type="text" placeholder="영문,숫자,특수문자 8~15"></li>
+                    <li>비밀번호 재확인<br><input type="text" placeholder="영문,숫자,특수문자 8~15" checked></li>
+                        
+                </ul>
+                    
+            </fieldset>
+        </form>
+    </body>
+</html>

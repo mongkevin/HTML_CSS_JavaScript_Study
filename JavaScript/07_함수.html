@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <style>
+        .area{
+            width: 500px;
+            height: 100px;
+            background-color: blanchedalmond;
+            border:  1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수</h1>
+
+    <h3>onclick="test1()": 선언적 함수</h3>
+    <pre>
+        function 함수명(매개변수,...){
+            해당 함수 호출시 실행할 코드;
+
+            return 결과값;
+        }
+
+        -매개변수가 없는 경우는 생략 가능
+        -반환할 결과값이 없으면 생략 가능
+
+    </pre>
+
+    <button onclick="test1();">실행확인</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function test1(){
+            document.getElementById("area1").innerHTML += "test1() 함수 실행됨 <br>";
+        }
+    </script>
+
+    <h3>익명함수</h3>
+    <pre>
+        function(매개변수,...){
+            소스코드
+        }
+
+        특정 변수나 속성에 대입되는 함수 제시시 주로 사용
+        (이벤트 핸들러 작성시)
+    </pre>
+
+    <button id="btn">실행확인</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        var btn = document.querySelector("#btn");
+
+        btn.onclick = function(){ //이벤트 속성에 대입되는 function == 이벤트 핸들러
+            document.getElementById("area2").innerHTML += "이벤트 핸들러를 통해 실행됨 <br>";
+        }
+    </script>
+
+    <hr>
+
+    <h2>함수의 매개변수</h2>
+
+    <button onclick="test3('안녕');">실행확인</button>
+    <button onclick="test3(10);">실행확인</button>
+    <button onclick="test3([1,2,3]);">실행확인</button>
+    <button onclick="test3(true);">실행확인</button>
+    <button onclick="test3(prompt('이름을 입력해보세요.'));">실행확인</button>
+    <button onclick="test3('안녕하세요','반갑습니다');">실행확인</button>
+    <!--정의한 매개변수 보다 많은 데이터 보내도 오류발생 초과된 데이터 무시됨-->
+    <button onclick="test3(10,헤헤,[1,2,3]);">실행확인</button>
+    <button onclick="test3();">실행확인</button>
+    <!--정의한 매개변수 개수보다 적은 데이터 보내도 오류발생 x 대신 undefined로 뜨운다-->
+    <div id="area3" class="area"></div>
+
+    <script>
+        function test3(value){ //매개변수 제시시 자료형 지정하지 않음 변수명만 작성
+            document.querySelector("#area3").innerHTML = value;
+        }
+    </script>
+
+    <br>
+    <h3>매개변수 관련 arguments배열</h3>
+    <p>
+        함수 호출시 전달되는 값은 내부적으로 arguments 배열에 됨 <bt>
+        argument: 모든 함수마다 내부적으로 하나씩 존재항영 배열객체
+    </p>
+
+    <button onclick="test4(1,2,3,4,5);">실행확인</button>
+    <div id="area4" class="area"></div>
+    <script>
+        function test4(){
+            
+            //console.log(argument);
+            //arguments.배열에 있는 값을 더해서 div에 출력
+
+            var sum = 0;
+            for(var i= 0; i<arguments.length; i++){
+                sum += arguments[i];
+            }
+
+            document.getElementById("area4").innerHTML = "합계: " + sum + "<br>";
+            document.querySelector("#area4").innerHTML += "평균" + sum / arguments.length + "<br>";
+               
+        }
+    </script>
+
+    <br>
+    <h3>매개변수 있는 함수에 this 관련 전달하기</h3>
+
+    <button onclick="test5(this);">버튼1</button>
+    <button onclick="test5(this.innerHTML);">버튼2</button>
+    <input type="button" value="버튼3" onclick="test5(this.value);">
+
+    <button onclick="test5(this.id);" id="btn">버튼4</button>
+
+    <script>
+        function test5(value){
+            console.log(value)
+        }
+    </script>
+
+    <hr>
+    <h2>함수의 리턴</h2>
+
+    <h3>일반적인 값 리턴</h3>
+
+    <button onclick="test6();">실행확인</button>
+    <div class="area" id="area6"></div>
+
+    <script>
+        //1~100사이의 랜덤값을 반환해주는 함수 만들기
+        function test6(){
+            var divEl = document.getElementById("area6");
+
+            divEl.innerHTML+= "랜덤값: " + ran() + "<br>";
+        }
+
+        function ran(){
+            var random = parseInt(Math.random()*100+1);
+
+            return random;
+        }
+    </script>
+
+    <br>ㅂ
+    
+    <h3>익명 함수를 리턴하는 함수</h3>
+
+    이름: <input type="text" id="userName">
+    <button onclick="test7()();">실행확인</button>
+
+    <script>
+        function test7(){
+            var name = document.getElementById("userName").value;
+
+            console.log(name);
+
+            return function(){
+                alert(name+"님 환영합니다.")
+            }
+        }
+    </script>
+</body>;
+</html>

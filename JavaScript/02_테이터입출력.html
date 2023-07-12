@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 입출력</title>
+    <style>
+        .area{
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>자바스크립트에서의 데이터 입출력</h1>
+    <!--
+        window: 자바스크립트 내장 객체로 브라우저 창이 열릴때마다 하나씩 만들어지는 객체로
+        브라우저에 존재하는 모든 요소들의 최상위 객체이다.
+        (모든곳에 적용되기 때문에 생략도 가능하다 ex- window.alert - alert (window 생략가능)
+                                            widow.console.log - console.log)
+
+        document: 웹문서마다 하나씩 만들어지는 객체
+                    HTML 문서에 대한 정보를 가지고 있다.
+    -->
+    <h2>1. 데이터를 출력하는 기본 구문</h2>
+
+    <p>
+        1)window.alert("알림창에 출력할 문구"); <br>
+        2)window.console.log("콘솔창에 추렭할 문구"); <br>
+        3)document.write("화면에 출력할 문구"); <br>
+        4)선택한 요소.innerHTML/innerTEXT = "해당요소에 출력할 문구";
+    </p>
+
+    <h3>3)document.write('화면에 출력할 문구');</h3>
+
+    <button onclick="documentWrite();">화면에 출력</button>
+
+    <script>
+        function documentWrite(){
+            // document.write("잘나오나요?");
+            // document.write("<mark>이건잘될려나..</mark>")
+            //화면에 출력할 문자열에 html요소가 들어가있으면 해당 html요소의 기능으로써 인식되어 나온다
+
+            var table = "<table border='1'>";
+                table += "<tr>";
+                table += "<td>1</td>";
+                table += "<td>2</td>";
+                table += "</tr>";
+                table += "</table>";
+            
+            document.write(table);
+        }
+    </script>
+    <br>
+    <h3>4)선택한요소.innerHTML/innerText = "해당 요소에 출력할 문구</h3>
+
+    <div class="area" id="area1">
+        자바스크립트에서 어떠한 요소 (element)안의 값 (content 값)을 가지고 온다거나 <br>
+        변경하고자 할때 <b>innerHTML,innerText</b> 라는 속성에 접근 가능하다
+    </div>
+
+    <button onclick="tagValue();">확인</button>
+
+    <script>
+        function tagValue(){
+            //특정 요소의 값을 자기고 온다거나 변경하고자 할때
+            //먼저 해당 요소 객체를 가지고 와서 변수에 담아 작업할 것
+
+            var divE1 = document.getElementById('area1'); //div요소를 divE1 변수에 담음
+            console.log(divE1);
+            console.log(divE1); //console.dir: 해당값의 디렉토리 구조를 보고자할때 (속성정보)
+
+            //선택한 요소 내에 정보들을 알아내고자한다면 속성들에 직접 접근가능하다.
+            console.log(divE1.id);
+            console.log(divE1.className);
+
+            //선택한 요소의 content 정보를 알고자 한다면
+            console.log(divE1.innerHTML); //태그들도 같이 나온다. innerHTML: 요소의 content영역의 html요소까지 가지고 온다
+            console.log(divE1.innerText); //innerText: 요소의 content영역의 텍스트만 포함(html요소는 가져오지 않음)
+
+            //위와같이 속성에 직접 접근하여 값을 가지고 오는 것도 가능하지만
+            //해당 속성에 값을 대입하는 것도 가능하다
+            // divE1.innerHTML = "<mark>변경이 완료되었습니다.</mark>";
+            divE1.innerText = "<mark>변경을 해보자.</mark>";
+
+            //innerHTML로 변경하면 출력할 문구에 html태그가 있을 경우 태그로 인식한다.
+            //innerText로 변경하면 출력할 문구에 html태그가 있어도 문자열로 인식한다.
+
+            divE1.onclick = function(){
+                alert("div클립됨");
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h2>2. 데이터를 입력받는 기본 구문(변수에 기록 가능)</h2>
+    <p>
+        1)변수 = window.confirm('질문내용'); <br>
+        2)변수 = window.prompt('질문내용'); <br>
+        3)변수 = 선택한요소.속성(id/class/innerHTML,...); <br>
+        4)변수 - 선택한input요소.value;
+    </p>
+
+    <h3>1)window.confirm('질문내용')</h3>
+    <p>
+        confirm호출시 "질문내용"과 "확인/취소" 버튼이 존재하는 알림창 발생 <br>
+        확인 버튼 클릭시 true/취소버튼 클릭시 false를 반환한다.
+    </p>
+
+    <button onclick="testConfirm();">클릭</button>
+    <div class="area" id="area2"></div>
+    <script>
+        function testConfirm(){
+            var result = window.confirm("졸리면 확인 아니면 취소");
+
+            // console.log(result);
+            var divE1 = document.getElementById("area2");
+
+            if(result){
+                divE1.innerHTML = "<mark>너무 졸려요</mark>";
+            }else{
+                divE1.innerHTML = "<h2>저는 졸려본적이 없어요</h2>"
+            }
+        }
+    </script>
+
+    <br>
+
+    <h3>2)window.prompt("질문내용")</h3>
+    <p>
+        prompt 호출시 "질문내용"과 입력할 수 있는 "텍스트 상자" 와
+        "확인/취소" 버튼이 보여지는 알림창 발생 <br>
+        -확인버튼 클릭 시 텍스트 상자에 입력되어 있는 값이 반환 <br>
+        -취소버튼 클릭시 null을 반환
+    </p>
+
+    <button onclick = "testPrompt();">클릭</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        function testPrompt(){
+
+            var name = window.prompt("당신의 이름은 무엇입니까?");
+            var age = window.prompt("당신의 나이는 몇살입니까?");
+
+            console.log(name);
+            console.log(age);
+
+            //div영역에 당신의 나이는 "나이"살 "이름"이시군요로 출력해보기(굵은 글씨로)
+
+            var divE1 = document.getElementById('area3');
+            divE1.innerHTML = "<b>당신의 나이는 "+age+"살 "+name+"이시군요로 출력해보기</b>";
+        }
+    </script>
+
+    <br>
+
+    <button onclick="testPrompt2();">클릭</button>
+
+    <ul id="ul1">
+
+    </ul>
+
+    <script>
+        function testPrompt2(){
+            var num = window.prompt("숫자를 입력해주세요: ");
+
+            /*
+                자바 for문
+                for(int i=0; i<10; i++){
+
+                }
+            */
+           var str = ""; //문자열 더해넣을 변수
+            
+           for(var i=0; i<num; i++)[
+                str+="<li>안녕하세요</li>"
+           ]
+           var ulEl = document.getElementById("ul1");
+           ulEl.innerHTML = str;
+        }
+    </script>
+
+    <h3>4)input요소.value</h3>
+
+    아이디: <input type="text" id="userId"><br>
+    비밀번호: <input type="password" id="userPwd"><br>
+
+    <button onclick="testInput();">클릭</button>
+
+    <script>
+        function testInput(){
+            var inputId = document.getElementById("userId");
+            var inputPwd = document.getElementById("userPwd");
+
+            console.log(inputId.value);
+            console.log(inputPwd.value);
+        }
+
+        
+    </script>
+
+    <br><br>
+
+    <h1>prompt를 이용하여 행 열 개수를 입력받아 테이블 만들기</h1>
+    <h5>document.write를 이용해서 테이블 출력</h5>
+
+    <button onclick="createTable();">클릭</button>
+
+    <div id="ct" class="area">
+
+    </div>
+
+    <script>
+        function createTable(){
+            var row = window.prompt("행의 개수를 입력하세요: ");
+            var col = window.prompt("열을 개수를 입력해주세요: ")
+            var divEl = document.getElementById("ct");
+            var count = 1;
+
+            var table = "<table border='1'>"; 
+            //반복문을 통해서 행과 열을 반복하여 만들어주기
+            for(var i=0; i<row; i++){ //행을 만드는 반복문
+                table += "<tr>";
+                    for(var j=0; j<col; j++){ //열을 만드는 반복문
+                        table += "<th>"+(count++)+"</th>";
+                    }
+                table += "</tr>"
+            }
+            table += "</table>"
+
+            divEl.innerHTML = table;
+
+            // document.write(table);
+        }
+    </script>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

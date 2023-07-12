@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자관련 스타일</title>
+    <style>
+        #color-1{
+            color:burlywood;
+        }
+        #color-2{
+            color:#50728A;
+        }
+        #color-3{
+            color: rgb(150, 100, 167);
+        }
+        #color-4{
+            color:rgba(150, 100, 167, 0.5);
+        }
+        #color-5{
+            color: hsl(5, 60%, 50%);
+        }
+        #color-6{
+            color: hsla(68, 42%, 70%, 0.6)
+        }
+
+
+        #deco1{
+            text-decoration: underline;
+        }
+        #deco2{
+            text-decoration: line-through;
+        }
+        #deco3{
+            text-decoration: overline;
+        }
+        #deco4>a{
+            text-decoration: none;
+            color:bisque;
+        }
+
+
+        .shadow{
+            font-size: 100px;
+            font-weight: 900;
+            line-height: 150px;
+        }
+        #show1{
+            color: orange;
+            text-shadow: 5px 5px orangered; /*가로 세로 색상*/
+        }
+        #show2{
+            color: white;
+            text-shadow: 0px 1px 100px rgb(48, 54, 57);
+        }
+        #show3{
+            color: white;
+            text-shadow: 1px 1px 25px hotpink;
+        }
+        #bg:active{
+            background-color: black;
+        }
+        #show4{
+            text-shadow: 
+            0px 0px 4px rgb(184, 179, 179),
+            0px -5px 4px yellow,
+            2px -10px 6px orange,
+            2px -20px 20px red;
+        }
+
+
+        #ws1{
+            white-space: normal;
+            /*기본값: 공백을 여러개 넣어도 공백 1개만 표시, 글이 길어지면 자동 줄바꿈됨*/
+        }
+        #ws2{
+            white-space: nowrap;
+            /*공백을 여러개 넣어도 공백1개만 표시됨, 글이 길어져도 줄바꿈을 하지 않고 한줄표현*/
+        }
+        #ws3{
+            white-space: pre;
+            /*공백 그대로 표시, 줄바꿈도 표시 형식유지함 <pre>태그와 같음*/
+        }
+        #ws4{
+            white-space: pre-line;
+            /*공백 1개만 표시, 줄바꿈 없어도 자동 줄바꿈되면 줄바꿈이 있으면 표현해줌*/
+        }
+
+    </style>
+</head>
+<body>
+    <h1>글자 관련 스타일</h1>
+
+    <h3>글자 색상: color</h3>
+
+    <!-- ul>li#color-$*6-->
+    <ul>
+        <li id="color-1">색상명</li>
+        <li id="color-2">16진수(코드표)</li>
+        <li id="color-3">RGB값</li>
+        <li id="color-4">RGBA값(A: 투명도)</li>
+        <li id="color-5">HSL값(색,채도,명도)</li>
+        <li id="color-6">HSLA값(A:투명도)</li>
+    </ul>
+    
+    <h3>text-decoration: 글자 밑줄, 취소선</h3>
+    <!-- ul>li#deco$*4 -->
+    <ul>
+        <li id="deco1">밑줄 표현</li>
+        <li id="deco2">취소선</li>
+        <li id="deco3">윗줄</li>
+        <li id="deco4"><a>하이퍼핑크 표현</a></li>
+    </ul>
+
+    <h3>글자의 그림자 test-shadow</h3>
+    <p>
+        선택자{
+            text-shadow: 값;
+        }
+    </p>
+
+    <div id="bg">
+        <!--span#show$.shadow{HTML}*4-->
+        <span id="show1" class="shadow">HTML</span><br>
+        <span id="show2" class="shadow">HTML</span><br>
+        <span id="show3" class="shadow">HTML</span><br>
+        <span id="show4" class="shadow">HTML</span><br>
+    </div>
+
+    <h3>글자간의 여백 white-space</h3>
+    <!-- p#ws$*4 -->
+    <p id="ws1">
+        때에, 우리는 이는 대고, 장식하는 것이다. 행복스럽고 찾아다녀도, 찾아 인도하겠다는 그들의 때에, 
+        인생에        청춘은 싹이 것이다. 우리는 기관과 그들은 이것을 살았으며, 때문이다. 
+        피가 충분히 보내는 이것은 품고 이것이다. 기관과 별과 희망의 봄바람이다. 
+        이상은 이성은 가는 없는 가      진 길지 거친 인생에 현저하게 운다. 
+        무한한        하였으며, 끓는 원대하고, 옷을 눈이 것이다. 
+        하였으며, 보이는 아름답고 끓는 우리의 피에 그들의 풀밭에 있다. 우리의 품었기 가치를 따뜻한 운다. 
+        것이다.보라, 공자는 온갖 것이다. 청춘에서만 불어 긴지라 열락의 기관과 철환하였는가?
+    </p>
+    <p id="ws2">
+        때에, 우리는 이는 대고, 장식하는 것이다. 행복스럽고 찾아다녀도, 찾아 인도하겠다는 그들의 때에, 
+        인생에 청춘은 싹이 것이다. 우리는 기관과 그들은 이것을 살았으며, 때문이다. 
+        피가 충분히 보내는        이것은 품고 이것이다. 기관과 별과 희망의 봄바람이다. 
+        이상은 이성은 가는 없는 가진 길지 거친 인생에 현저하게 운다. 
+        무한한 하였으며,         끓는 원대하고, 옷을 눈이 것이다. 
+        하였으며, 보이는 아름답고 끓는 우리의 피에 그들의 풀밭에 있다. 우리의 품었기 가치를 따뜻한 운다.
+         것이다.보라, 공자는 온갖 것이다. 청춘에서만 불어 긴지라 열락의 기관과 철환하였는가?
+    </p>
+    <p id="ws3">
+        때에, 우리는 이는 대고, 장식하는 것이다. 행복스럽고 찾아다녀도, 찾아 인도하겠다는 그들의 때에, 
+        인생에 청춘은       싹이 것이다. 우리는 기관과 그들은 이것을 살았으며, 때문이다.
+         피가 충분히 보내는 이것은 품고 이것이다.          기관과 별과 희망의 봄바람이다. 
+         이상은 이성은 가는 없는 가진 길지 거친 인생에 현저하게 운다. 무한한 하였으며, 끓는 원대하고,
+          옷을 눈이 것이다. 하      였으며, 보이는 아름답고 끓는 우리의 피에 그들의 풀밭에 있다. 
+          우리의 품었기 가치를 따뜻한 운다. 것이다.보라, 공자는 온갖 것이다. 청춘에서만 불어 긴지라 
+          열락의 기관과 철환하였는가?
+    </p>
+    <p id="ws4">
+        때에, 우리는 이는 대고, 장식하는 것이다. 행복스럽고 찾아다녀도, 
+        찾아 인도하겠다는 그들의 때에, 인생에 청춘은 싹이 것이다. 우리는 기관과 그들은 이것을 살았으며,
+         때문이다.        피가 충분히 보내는 이것은 품고 이것이다. 기관과 별과 희망의 봄바람이다. 
+         이상은 이성은 가는       없는 가진 길지 거친 인생에 현저하게 운다. 무한한 하였으며, 끓는 원대하고, 
+         옷을 눈이 것이다. 하였으며, 보이는 아름답고 끓는      우리의 피에 그들의 풀밭에 있다. 
+         우리의        품었기 가치를 따뜻한 운다. 것이다.보라, 공자는 온갖 것이다. 청춘에서만 불어 긴지라 
+         열락의 기관과 철환하였는가?
+    </p>
+</body>
+</html>

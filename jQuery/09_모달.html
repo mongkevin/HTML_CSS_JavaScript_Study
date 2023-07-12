@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모달</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Open modal
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">내가 만든 모달</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <table class="table table-hover"><!--table에 클래스를 추가하면 부트스트랩에서 지원하는 스타일로 변경가능-->
+                <thead>
+                    <tr>
+                        <th>글제목</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>조회수</th>
+                        <th>작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>글제목</td>
+                        <td>user01</td>
+                        <td>3</td>
+                        <td>2023/03/28</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>글제목</td>
+                        <td>user01</td>
+                        <td>3</td>
+                        <td>2023/03/28</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Hello</td>
+                        <td>user01</td>
+                        <td>3</td>
+                        <td>2023/03/28</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>글제목</td>
+                        <td>user01</td>
+                        <td>3</td>
+                        <td>2023/03/28</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+</body>
+</html>

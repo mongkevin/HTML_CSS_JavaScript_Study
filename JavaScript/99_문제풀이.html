@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }    
+    </style>
+    
+</head>
+<body>
+    <h1>문제1. 색상 선택 후 변경 버튼을 크릭하면 색상 변경되도록 만드시오 힌트: 색상선택</h1>
+    <div class="area" id="area1"></div>
+    <br>
+    <input type="color" id="cPick">
+    <button onclick="cc();">변경</button>
+
+    <script>
+        function cc(){
+            var divEl = document.getElementById("area1");
+
+            //input:color 요소객체 변수에 담기
+            var inputC = document.getElementById("cPick");
+
+            divEl.style.backgroundColor = inputC.value;
+        }
+    </script>
+
+    <br>
+    <hr>
+    <h1>문제2. 버튼에 따른 크기 조절이 가능하게 만드시오</h1>
+    <div class="area" id="area2" style="background-color: bisque;"></div>
+    <br>
+    <button onclick="half();">50x50</button>
+    <button onclick="origin();">원본 100x100</button>
+    <button onclick="double();">더블 200x200</button>
+
+    <script>
+        var divEl = document.getElementById("area2");
+
+        function half(){
+            divEl.style.width="50px";
+            divEl.style.height="50px";
+        }
+
+        function origin(){
+            divEl.style.width="100px";
+            divEl.style.height="100px";
+        }
+
+        function double(){
+            divEl.style.width="200px";
+            divEl.style.height="200px";
+        }
+    </script>
+
+    <h1>문제3.HTML 태그에 접근 테스트</h1>
+    <h4>단, 구매자는 태그이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name으로 접근</h4>
+
+    <br>
+    구매자: <input type="text" id="customer" placeholder="구매자의 이름을 입력해주세요"><br>
+    상품명: <input type="text" id="brand" placeholder="상품명을 입력해주세요"><br>
+    가격: <input type="text" name="price" placeholder="가격을 입력해주세요"><br>
+
+    <button onclick="print();">입력값 출력하기</button>
+
+    <div class="area" id="area3" style = "background-color: blanchedalmond;"></div>
+
+    <script>
+        function print(){
+            var buyer = document.getElementsByTagName('input');
+            // console.log(buyer);
+
+            var brand = document.getElementById("brand");
+
+            var price = document.getElementsByName('price');
+            
+
+            var area3 = document.getElementById("area3");
+            area3.innerHTML = "구매자: "+buyer[1].value +"<br>상품명: "+brand.value+"<br>가격: "+price[0].value;
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

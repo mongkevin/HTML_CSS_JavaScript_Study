@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와 자료형</title>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h2>변수 선언시 var, let, const를 이용하여 선언가능</h2>
+    
+    <h3>var,let,const의 차이점</h3>
+
+    <h4>1)변수 선언 방법</h4>
+    <button onclick="test1()">클릭</button>
+
+    <h4>2)스코프(사용범위)</h4>
+    <button onclick="test2()">클릭</button>
+
+
+
+    <script>
+        function test1(){
+            //1. var의 재선언, 재활당;
+            var userId = "user01";
+            console.log(userId);
+
+            var userId = "user02";
+            console.log(userId);
+
+            var userId = "user03";
+            console.log(userId);
+
+            userId = "user04";
+            console.log(userId);
+
+            console.log("==================================");
+            //2. let의 재선언, 재활당; (재선언 불가능)
+            let userPwd = 'pass01';
+            console.log(userPwd);
+
+            // let userPwd = "pass02";
+            // console.log(userPwd);
+            //안된다.
+
+            userPwd = "pass02";
+            console.log(userPwd);
+
+            console.log("==================================");
+            //const의 재선언, 재활당 (재선언, 재할당 둘다 불가능 - 상수개념)
+            const userName = "박연진";
+            console.log(userName);
+
+            // const userName = "문동은";
+            // console.log(userName);
+
+            // userName = "하동영";
+            // console.log(userName);
+            //알려주진 않지만 재할당도 불가능
+
+            /*
+                var는 자유롭게 변수 선언 사용할수 있는 장점이자 단점이 있다.
+                중복된 변수가 생길수 있고 값이 변경될 여지가 있음.
+                보완하여 나온 타입이 let, const이다.
+                es6버전부터
+                let을 권장하지만 아직var를 사용하는 회사가 있음
+            */
+        }
+
+
+        //범위 확인 범수
+        function test2(){
+            //var는 function scope == 변수가 선언된 함수영역 내에서 사용가능
+            var name = "전재준";
+
+            console.log(name);
+            scoptTest(); //아래의 scoptTest함수 호출해보기
+
+            if(true){ //지역 변수이지만 밖에 console에서 값을 뽑을수 있다.
+                var age = 20;
+            }
+            console.log(age); //사용 가능
+
+            for(var i=5; i<10; i++){
+                //영역내에 변수가 선언되어도 해당 함수내에서는 사용 가능하다.
+            }
+            console.log(i);
+
+            console.log("==================================");
+
+            //2)let, const는 block scope == 변수가 선언된 블럭{} 내에서만 사용가능
+            //자바의 지역변수 개념과 유사
+
+            if(ture){
+                const hobby = "누워있기";
+                let gender = "남자";
+            }
+
+            // console.log(hobby); //사용불가 {}블록을 벗어났음
+            // console.log(gender); //지역 변수로 둘다 실행이 불가능함
+        }
+
+        function scoptTest2(){
+            //함수영역밖에 선언된 var변수는 사용불가능
+            console.log(name);
+        }
+    </script>
+
+
+    <h3>변수 선언 위치에 따른 전역변수/지역변수</h3>
+
+    <script>
+        //특정 함수영역 밖에 선언된 변수는 전역변수로 잡힌다
+        var declareVar = "var 전역변수";
+        let declareLet = "let 전역변수";
+        const declareConst = "const 전역변수";
+
+        declareNone = "그냥 전역변수";
+
+        //window.onload=function(){해당 문서가 로딩된 직후에 실행시킬 코드}
+        window.onload = function(){
+            //전역변수와 동일한 이름으로 지역변수 선언
+
+            var declareVar = "var 지역변수";
+            let declareLet = "let 지역변수";
+            const declareConst = "const 지역변수";
+
+            console.log(declareVar);
+            console.log(declareLet);
+            console.log(declareConst);
+            //기본적으로 지역변수명이랑 전역변수명이랑 중복이라면 지역변수가 우선순위이다.
+            
+            console.log(declareNone); //전역변수 사용
+            console.log("==================================");
+
+            //그냥 전역변수에 접근하려하니 오류발생 또는 정의되지 않음
+            //이때 접근하려면? window. 또는 this.으로 접근하려고한다.
+            //이때 접근 가능한 타입은 var타입만 가능하다(let과 const는 접근불가(좀더 엄격함))
+            //window.declareVar
+            console.log(window.declareVar);
+            console.log(this.declareVar);
+
+            //let과 const는?
+            console.log(window.declareLet);
+            console.log(window.declareConst);
+            //undefied : 사용불가
+
+            //var,let,const 없이 변수 선언
+            declareInner = "이것은 전역변수인가요 지역변수인가요?";
+            console.log(declareInner);
+            console.log(window.declareInner);
+            console.log(this.declareInner);
+            //셋다 사용가능
+            test();
+            //특정 함수 내에 var, let, const없이 선언된 변수는 전역변수로 잡히게 된다. 
+        }
+
+        function test(){
+            console.log(declareInner);
+        }
+    </script>
+
+    <h3>자료형</h3>
+    <p>
+        변수 선언시 자료형을 별도로 지정하지 않음(자료형의 개념이 없는건 아니다) <br>
+        -변수에 대입되는 값(리터럴)에 따라서 자료형이 자동으로 결정된다.
+    </p>
+
+    <h4>자바스크립트 자료형</h4>
+
+    <ul>
+        <li>string 문자열</li>
+        <li>number 숫자</li>
+        <li>boolean 논리값</li>
+        <li>object 객체</li>
+        <li>function 함수</li>
+        <li>undefied 초기화 되지 않은 변수</li>
+    </ul>
+
+    <button onclick="typeTest();">자료형 테스트</button>
+    <div id="area1" style="border: 1px solid black"></div>
+
+    <script>
+        function typeTest(){
+            var name = "홍길동";
+            var age = 20;
+            var flag = true;
+
+            var hobby = ["영화보기","음악듣기","잠자기"];
+
+            var user = {
+                name: '김철수',
+                age: 30,
+                id:'user01'
+
+            }
+
+            var testFn = function(){
+                alert("우와");
+            }
+            var noVal;
+            console.log(name);
+            console.log(age);
+            console.log(flag);
+            console.log(hobby);
+            console.log(user);
+            console.log(testFn);
+            console.log(noVal);
+
+            var divEl = document.getElementById('area1');
+            //자료형 확인할때 사용하는 함수 type(병수명)
+            divEl.innerHTML = name+"의 자료형: "+typeof(name)+"<br>";
+            divEl.innerHTML += age+"의 자료형: "+typeof(age)+"<br>";
+            divEl.innerHTML += flag+"의 자료형: "+typeof(flag)+"<br>";
+            divEl.innerHTML += hobby+"의 자료형: "+typeof(hobby)+"<br>";
+            divEl.innerHTML += user+"의 자료형: "+typeof(user)+"<br>";
+            divEl.innerHTML += testFn+"의 자료형: "+typeof(testFn)+"<br>";
+            divEl.innerHTML += noVal+"의 자료형: "+typeof(noVal)+"<br>";
+
+            //객체내부 속성에 접근하기
+            divEl.innerHTML += user.name+"의 나이는 "+user.age+"살이고 아이디는"+user.id+"입니다.";
+            
+        }
+    </script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

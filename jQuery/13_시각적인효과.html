@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시작적인 효과 메소드</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>시각적인 효과 메소드(Effect 메소드)</h1>
+    <p>
+        페이지 내에 애니메이션 효과르 ㄹ만들기 위해 사용되는 메소드 집합
+    </p>
+
+    <h3>show()와 hide(), toggle()</h3>
+    <p>
+        선택된 요소가 점점 커지면서 보여지고, 점점 작아지면서 사라지게 하는 메소드
+    </p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+
+    <br>
+
+    <img src="https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg" id="img">
+    <!--이미지가 아니더라도 사용가능-->
+    <div id="area1" style="width: 100px; height:100px; border: 1px solid black;"></div>
+    
+    <script>
+        $(function(){
+            $("#hide").click(function(){
+                $("#img").hide(1000);
+                $("#area1").hide(2000);
+            });
+
+            $("#show").click(function(){
+                $("#img").show(1000);
+                $("#area1").show(2000);
+            });
+
+            $("#toggle").click(function(){
+                $("#img").toggle(1000);
+                $("#area1").toggle(1200);
+            });
+        })
+    </script>
+</body>
+</html>

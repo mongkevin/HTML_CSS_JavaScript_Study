@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>이벤트 핸들러(이벤트 발생시 실행될 function) 연결 방법 종류</h1>
+
+    <h3>방법 1.이벤트 메소드를 통한 연결</h3>
+
+    <pre>
+        $("선택자").이벤트메소드(function(){
+            해당요소에 해당이벤트가 발생했을때 실행하는 구문
+        });
+    </pre>
+
+    <h4 id="test">클릭</h4>
+
+    <script>
+        $(function(){
+            $("#test").click(function(){
+                $(this).html("클릭완료");
+            });
+
+            $("#test").dblclick(function(){
+                $(this).css("color","red");
+            });
+        })
+    </script>
+
+    <br><br>
+    <hr>
+    <h3>방법2. on메소드 사용</h3>
+    <pre>
+        $("선택자").on("이벤트용",function(){ 
+            실행시킬 구문
+        })
+    </pre>
+
+    <h4 id="test1">마우스를 클릭 또는 올려보세요</h4>
+
+    <script>
+        $(function(){
+            $("#test1").on("click",function(){
+                $(this).css("backgroundColor","skyblue");
+            });
+
+            //on메소드 이용시 다중이벤트 사용가능
+            $("#test1").on({"mouseenter":function(){
+                $(this).css("backgroundColor","pink").text("마우스 올라감");
+            },"mouseout":function(){
+                $(this).css("backgroundColor","skyblue").text("마우스나감");
+            },
+                "click":function(){
+                    //off(): 이벤트핸들러를 제거하는 함수
+                    $(this).off("mouseenter").off("mouseout").css("backgroundColor","hotpink").text("이벤트 모두 제거 완료")}
+            });
+        })
+    </script>
+
+    <h3>방법3</h3>
+    <pre>
+        $("상위요소선택자").on("이벤트명","하위요소선택자",function(){
+            선택된 상위요소 안에 존재하는 해당 하위요소에 해당 이벤트가 발생했을때
+
+        });
+    </pre>
+
+    <div id="wrap">
+        <h4>h4 클릭</h4>
+        <h4>h5 클릭</h4>
+    </div>
+
+    <script>
+        $(function(){
+            //$("#wrap").on("click",function(){}) - 방법2
+            $("#wrap").on("click","h4",function(){
+                alert("클릭되었습니다.");
+            });
+
+            //$(document) : 이 문서상에
+            $(document).on("click","h4,h5",function(){
+                $(this).css("backgroundColor","red");
+                $(this).html("너무 쎼게 클릭했어요");
+            });
+        });
+    </script>
+
+    <h3>동적으로 만들어진 요소에 이벤트를 적용시키고자 한다면 방법3으로 진행해야함</h3>
+    <!--동적으로 만들어진 요소란:
+            처음 페이지가 로드될때는 없던 요소지만 이후 추가된 요소-->
+
+    <div id="wrap2" style="border: 1px solid black">
+        <h6 style="background-color: lightblue">기존에 존재하는 요소</h6>
+    </div>
+
+    <script>
+        $(function(){
+            //방법1 - 이벤트 메소드() 동적으로 만들어진 요소에는 아무 이벤트가 없다
+            // $("#wrap2>h6").click(function(){ 
+            //     $("#wrap2").append("<h6>이벤트메소드로 동적 추가 요소</h6>");
+            // })
+
+            //방법2 - on메소드
+            // $("#wrap2>h6").on("click",function(){
+            //     $("#wrap2").append("<h6>on 메소드로 동적 추가 요소</h6>");
+            // });
+
+            //방법3 - $("상위요소선택자").on("이벤트명","하위요소선택자",function(){})
+            $("#wrap2").on("click","h6",function(){
+                $("#wrap2").append("<h6>상위요소, 하위요소 선택자 on으로 동적 추가 요소</h6>");
+            })
+        })
+    </script>
+
+    <h3>일회성 이벤트</h3>
+    <pre>
+        이벤트를 단 한번만 할때 사용
+        $("선택자").one("이벤트명",function(){
+            이벤트 발생시 실행할 내용
+        })
+    </pre>
+
+    <h6 id="test3">단 한번만 실행</h6>
+
+    <script>
+        $(function(){
+            $("#test3").one("click",function(){
+                alert("안녕하세요");
+            });
+        })
+    </script>
+
+    <h3>키보드 관련 이벤트</h3>
+    <p>
+        keydown/keypress: 키가 눌려질때 발생하는 이벤트 <br>
+        keydown: 키보드의 모든 키가 눌려질때 발생 <br>
+        keypress: 키보드의 펑션키, 기능키등등 한글 제외 나머지가 툴렸을떄 <br>
+
+        keyup: 키가 떼어질때 발생
+    </p>
+
+    <input type="text" id="test4">
+
+    <script>
+        $(function(){
+            // $("#test4").keydown(function(){
+            //     console.log("눌렸다");
+            //     console.log($("#test4").val());
+            // });
+
+            // $("#test4").keypress(function(){
+            //     console.log("키보드 눌렸어요");
+            //     console.log($("#test4").val());
+            // })
+
+            $("#test4").keyup(function(){
+                console.log("키보드에서 손때지 마세요");
+            })
+        });
+    </script>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
